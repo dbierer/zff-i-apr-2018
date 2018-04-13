@@ -64,12 +64,12 @@ class PostControllerFactory implements FactoryInterface {
 6. Create a new view template here: Market\view\market\post\index.phtml.
 7. Add the view template code below:
 ```
-&lt;h1&gt;Online Market Posting&lt;/h1&gt;
-&lt;hr /&gt;
+<h1>Online Market Posting</h1>
+<hr />
 ```
 #### View Path Stack
 
-8. In the Market module.config.php file, make sure the view_manager =&gt; template_path_stack key points to the correct view folder
+8. In the Market module.config.php file, make sure the view_manager => template_path_stack key points to the correct view folder
 ```
 return [
     ...
@@ -84,20 +84,20 @@ return [
 
 9. Create a new child segment route for the PostController and add it to Market module.config.php, so that the PostController::indexAction() is reached.
 ```
-'market' =&gt; [
-    'type' =&gt; Literal::class,
-    'options' =&gt; [
-        'route' =&gt; '/market',
+'market' => [
+    'type' => Literal::class,
+    'options' => [
+        'route' => '/market',
         ...
     ],
-    'may_terminate' =&gt; true,
-    'child_routes' =&gt; [
-        'post' =&gt; [
-            'type' =&gt; Segment::class,
-            'options' =&gt; [
-                'route' =&gt; '/post[/]',
-                'defaults' =&gt; [
-                    'controller' =&gt; Controller\PostController::class,
+    'may_terminate' => true,
+    'child_routes' => [
+        'post' => [
+            'type' => Segment::class,
+            'options' => [
+                'route' => '/post[/]',
+                'defaults' => [
+                    'controller' => Controller\PostController::class,
                     'action' => 'index',
                 ],
         ],
@@ -137,11 +137,11 @@ class ViewControllerFactory implements FactoryInterface {
 
 14. Register the new ViewController, and ViewControllerFactory with the service container in the module.config.php.
 ```
-'controllers' =&gt; [
-    'factories' =&gt; [
-        Controller\PostController::class =&gt;
+'controllers' => [
+    'factories' => [
+        Controller\PostController::class =>
             Controller\Factory\PostControllerFactory::class,
-        Controller\ViewController::class =&gt;
+        Controller\ViewController::class =>
             Controller\Factory\ViewControllerFactory::class
     ],
 ],
@@ -149,29 +149,29 @@ class ViewControllerFactory implements FactoryInterface {
 15. Create a new view template here: Market\view\market\view\index.phtml.
 16. Add the view template code below:
 ```
-&lt;h1&gt;&lt;?= 'In ViewController, index layout' ?&gt;&lt;/h1&gt;
-&lt;hr&gt;
+<h1><?= 'In ViewController, index layout' ?></h1>
+<hr>
 ```
 #### Route to ViewController
 
 17. Create a new child segment route for the ViewController and add it to Market module.config.php, so that the ViewController::indexAction() method is reached.
 ```
-'market' =&gt; [
-    'type' =&gt; Literal::class,
-    'options' =&gt; [
-        'route' =&gt; '/market',
+'market' => [
+    'type' => Literal::class,
+    'options' => [
+        'route' => '/market',
         ...
     ],
-    'may_terminate' =&gt; true,
-    'child_routes' =&gt; [
-        'post' =&gt; [...],
-        'view' =&gt; [
-            'type' =&gt; Segment::class,
-            'options' =&gt; [
-                'route' =&gt; '/view[/]',
-                'defaults' =&gt; [
-                    'controller' =&gt; Controller\ViewController::class,
-                    'action'     =&gt; 'index',
+    'may_terminate' => true,
+    'child_routes' => [
+        'post' => [...],
+        'view' => [
+            'type' => Segment::class,
+            'options' => [
+                'route' => '/view[/]',
+                'defaults' => [
+                    'controller' => Controller\ViewController::class,
+                    'action'     => 'index',
                 ],
             ],
 ]]],...
