@@ -18,6 +18,17 @@ class IndexController extends AbstractActionController
     }
     public function testAction()
     {
-        return new ViewModel(['title' => __METHOD__, 'request' => $this->getRequest()]);
+	$title = $this->params()->fromQuery('title', __METHOD__);
+        return new ViewModel(['title' => $title, 'request' => $this->getRequest()]);
+    }
+    public function shortCircuitAction()
+    {
+	$response = $this->getResponse();
+	$response->setContent('<h1>Everything is under control.  Don\'t Panic.</h1>');
+        return $response;
+    }
+    public function urlAction()
+    {
+        return new ViewModel(['url' => $this->url()->fromRoute('market', ['name' => 'whatever'])]);
     }
 }
