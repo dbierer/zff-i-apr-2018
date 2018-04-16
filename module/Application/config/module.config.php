@@ -36,10 +36,20 @@ return [
             ],
         ],
     ],
-    'controllers' => [
-        'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
-        ],
+//    'controllers' => [
+//        'factories' => [
+//            Controller\IndexController::class => InvokableFactory::class,
+//        ],
+//    ],
+    'service_manager' => [
+        'services' => [
+	    'application-whatever' => [
+		'file' => __FILE__,
+		'namespaces' => [
+		    'application-module-config' => __NAMESPACE__
+		],
+	    ],
+	],
     ],
     'view_manager' => [
         'display_not_found_reason' => true,

@@ -12,9 +12,18 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    protected $whatever;
+    public function __construct($whatever)
+    {
+	$this->whatever = $whatever;
+    }
     public function indexAction()
     {
         return new ViewModel();
+    }
+    public function whateverAction()
+    {
+        return new ViewModel(['whatever' => $this->whatever]);
     }
     public function testAction()
     {

@@ -18,6 +18,39 @@ return [
 			'action' => 'index',
 		    ],
 		],
+		'may_terminate' => TRUE,
+		'child_routes' => [
+		    'index' => [
+			'type' => Literal::class,
+			'options' => [
+			    'route' => '/',
+			    'defaults' => [
+				'controller' => Controller\IndexController::class,
+				'action' => 'index',
+			    ],
+			],			
+		    ],
+		    'view' => [
+			'type' => Segment::class,
+			'options' => [
+			    'route' => '/view[/:category]',
+			    'defaults' => [
+				'controller' => Controller\ViewController::class,
+				'action' => 'index',
+			    ],
+			],			
+		    ],
+		    'post' => [
+			'type' => Segment::class,
+			'options' => [
+			    'route' => '/post[/]',
+			    'defaults' => [
+				'controller' => Controller\PostController::class,
+				'action' => 'index',
+			    ],
+			],			
+		    ],
+		],
 	    ],
 	],
     ],
@@ -28,12 +61,14 @@ return [
 	//],
 	// NOTE: this syntax is more typical for ZF 3.x applications
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class => Controller\IndexControllerFactory::class,
+            Controller\ViewController::class => Controller\ViewControllerFactory::class,
+            Controller\PostController::class => Controller\PostControllerFactory::class,
         ],
     ],
     'view_manager' => [
         'template_path_stack' => [
-            __DIR__ . '/../view',
+            __DIR__ . '/../templates',
         ],
     ],
 ];

@@ -12,5 +12,14 @@
  */
 
 return [
-    // ...
+    'service_manager' => [
+        'services' => [
+	    'application-whatever' => [
+		'file' => __FILE__,
+		'namespaces' => [
+		    'global-config' => __FILE__
+		],
+	    ],
+	],
+    ],
 ];

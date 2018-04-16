@@ -1,6 +1,46 @@
 # Zend Framework Fundamentals I -- April 2018
 
+## Re: Routing
+* Why does "Literal" not work for child when controller not specified
+  * When you use "Segment" controller inherits OK?
+
+## VM Notes
+
+### guestbook project
+* Need to update the database structure:
+  * From the browser go to `http://localhost/`
+  * Select `phpMyAdmin`
+  * Select `guestbook`
+  * Select `SQL`
+  * Paste in the following:
+```
+CREATE TABLE `entry` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+* To test:
+  * From the browser: `http://guestbook/guestbook`
+  * Enter the requested info and post
+  * Check to make sure your entry has been posted
+
+### onlinemarket.work
+* Might want to create a link on the "homepage" which appears when you enter `http://localhost/`
+```
+<a href=http://onlinemarket.work>onlinemarket.work</a></br>
+```
+
 ## Controllers and Plugins
+* Command line tool for generating factories:
+```
+cd /path/to/onlinemarket.work
+vendor/bin/generate-factory-for-class Name\\Of\\Class
+```
+
 ### Lab: New Controllers and Factories
 
 This is a lab covering the development of two new controllers, two controller factories, and associated layouts
@@ -297,4 +337,5 @@ IMPORTANT: do not forget to update the filesystem permissions!
 9. Insert a div tag and a call to the renderer ($this) for the variables passed to the IndexController's ViewModel constructor, and echo them.
 10. Open the browser and enter this URL: http://onlinemarket.work/market.
 11. If everything looks good, great!, you're ready to move forward, otherwise check everything again and test.
+
 
