@@ -1,5 +1,10 @@
 # Zend Framework Fundamentals I -- April 2018
 
+## LABS TO DO:
+### For Weds 18 April 2018:
+* Lab: Creating and Accessing a Service
+* Lab: Manipulating Views and Layouts
+
 ## Re: Routing
 * Why does "Literal" not work for child when controller not specified
   * When you use "Segment" controller inherits OK?
