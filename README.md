@@ -1,7 +1,11 @@
 # Zend Framework Fundamentals I -- April 2018
 
 ## LABS TO DO:
-### For Weds 18 April 2018:
+### For Fri 20 April 2018:
+* Lab: Route Parameters and Views
+* Lab: Escaping in the View
+* Lab: Custom View Helper
+### For Wed 18 April 2018:
 * Lab: Creating and Accessing a Service
 * Lab: Manipulating Views and Layouts
 
@@ -31,7 +35,7 @@ background-image {
 }
 </style>
 </li>
-<li><?= $this->escapeUrl("http://www.google.com/"); ?></li>
+<li>http://www.google.com/some/path?param=<?= $this->escapeUrl("Where You need URL Encoding"); ?></li>
 <li>Escaping Attributes
 <img src="<?= $this->escapeHtmlAttr("<script>alert('test');</script>"); ?>" /></li>
 </ul>
@@ -56,11 +60,10 @@ background-image {
   url:http\3A \2F \2F hackers\2E com\3F steal\3D yes}
 </style>
 </li>
-<li>http%3A%2F%2Fwww.google.com%2F</li>
+<li>http://www.google.com/some/path?param=Where%20You%20need%20URL%20Encoding</li>
 <li>Escaping Attributes
 <img src="&lt;script&gt;alert&#x28;&#x27;test&#x27;&#x29;&#x3B;&lt;&#x2F;script&gt;" /></li>
-</ul>
-```
+</ul>```
 
 ## VM Notes
 

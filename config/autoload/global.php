@@ -14,12 +14,30 @@
 return [
     'service_manager' => [
         'services' => [
-	    'application-whatever' => [
-		'file' => __FILE__,
-		'namespaces' => [
-		    'global-config' => __FILE__
+		'application-whatever' => [
+		    'file' => __FILE__,
+			'namespaces' => [
+			    'global-config' => __FILE__
+		    ],
+		],
+		'categories' => [
+		    'barter',
+		    'beauty',
+		    'clothing',
+		    'computer',
+		    'entertainment',
+		    'free',
+		    'garden',
+		    'general',
+		    'health',
+		    'household',
+		    'phones',
+		    'property',
+		    'sporting',
+		    'tools',
+		    'transportation',
+		    'wanted'
 		],
 	    ],
 	],
-    ],
 ];

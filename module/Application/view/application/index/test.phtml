@@ -18,7 +18,7 @@ background-image {
 }
 </style>
 </li>
-<li><?= $this->escapeUrl("http://www.google.com/"); ?></li>
+<li>http://www.google.com/some/path?param=<?= $this->escapeUrl("Where You need URL Encoding"); ?></li>
 <li>Escaping Attributes
 <img src="<?= $this->escapeHtmlAttr("<script>alert('test');</script>"); ?>" /></li>
 </ul>
