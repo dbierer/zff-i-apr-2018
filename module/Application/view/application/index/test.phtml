@@ -1,5 +1,28 @@
 <h1><?= $this->title; ?></h1>
-TEST
+<h3>Examples of Escaping:</h3>
+View Page Source to See Results
+<ul>
+<li><?php echo $this->escapeHtml('<bad>tag</bad>!@#$%^&'); ?></li>
+<li>Escaping Javascript
+<script>
+function whatever {
+   var url="<?= $this->escapeJs('http://evil.php?c=send_me_all_your_money'); ?>";
+   alert(url);
+}
+</script>
+</li>
+<li>Escaping CSS
+<style>
+background-image {
+  url:<?= $this->escapeCss("http://hackers.com?steal=yes"); ?>
+}
+</style>
+</li>
+<li><?= $this->escapeUrl("http://www.google.com/"); ?></li>
+<li>Escaping Attributes
+<img src="<?= $this->escapeHtmlAttr("<script>alert('test');</script>"); ?>" /></li>
+</ul>
+
 <pre>
 <?php var_dump($this->request); ?>
 </pre>

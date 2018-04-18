@@ -4,6 +4,59 @@
 * Why does "Literal" not work for child when controller not specified
   * When you use "Segment" controller inherits OK?
 
+## View: Escaping
+### Examples
+```
+<h3>Examples of Escaping:</h3>
+View Page Source to See Results
+<ul>
+<li><?php echo $this->escapeHtml('<bad>tag</bad>!@#$%^&'); ?></li>
+<li>Escaping Javascript
+<script>
+function whatever {
+   var url="<?= $this->escapeJs('http://evil.php?c=send_me_all_your_money'); ?>";
+   alert(url);
+}
+</script>
+</li>
+<li>Escaping CSS
+<style>
+background-image {
+  url:<?= $this->escapeCss("http://hackers.com?steal=yes"); ?>
+}
+</style>
+</li>
+<li><?= $this->escapeUrl("http://www.google.com/"); ?></li>
+<li>Escaping Attributes
+<img src="<?= $this->escapeHtmlAttr("<script>alert('test');</script>"); ?>" /></li>
+</ul>
+```
+### Results
+```
+<h3>Examples of Escaping:</h3>
+View Page Source to See Results
+<ul>
+<li>&lt;bad&gt;tag&lt;/bad&gt;!@#$%^&amp;</li>
+<li>Escaping Javascript
+<script>
+function whatever {
+   var url="http\x3A\x2F\x2Fevil.php\x3Fc\x3Dsend_me_all_your_money";
+   alert(url);
+}
+</script>
+</li>
+<li>Escaping CSS
+<style>
+background-image {
+  url:http\3A \2F \2F hackers\2E com\3F steal\3D yes}
+</style>
+</li>
+<li>http%3A%2F%2Fwww.google.com%2F</li>
+<li>Escaping Attributes
+<img src="&lt;script&gt;alert&#x28;&#x27;test&#x27;&#x29;&#x3B;&lt;&#x2F;script&gt;" /></li>
+</ul>
+```
+
 ## VM Notes
 
 ### guestbook project
