@@ -1,6 +1,9 @@
 # Zend Framework Fundamentals I -- April 2018
 
 ## LABS TO DO:
+### For Mon 23 April 2018:
+* Lab: Forms
+  * Step 14: missing closing "'" in example
 ### For Fri 20 April 2018:
 * Lab: Route Parameters and Views
 * Lab: Escaping in the View

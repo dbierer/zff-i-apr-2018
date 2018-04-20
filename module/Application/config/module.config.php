@@ -43,13 +43,21 @@ return [
 //    ],
     'service_manager' => [
         'services' => [
-	    'application-whatever' => [
-		'file' => __FILE__,
-		'namespaces' => [
-		    'application-module-config' => __NAMESPACE__
+			'application-whatever' => [
+				'file' => __FILE__,
+				'namespaces' => [
+					'application-module-config' => __NAMESPACE__
+				],
+			],
 		],
-	    ],
-	],
+    ],
+    'view_helpers' => [
+		'factories' => [
+			Helper\LeftLinks::class => InvokableFactory::class,
+		],
+		'aliases' => [
+			'leftLinks' => Helper\LeftLinks::class,
+		],
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
