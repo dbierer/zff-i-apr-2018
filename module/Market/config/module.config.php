@@ -85,6 +85,12 @@ return [
 	    ],
 	  ],
     ],
+    'service_manager' => [
+		'factories' => [
+			Form\PostForm::class => Form\Factory\PostFormFactory::class,
+			Form\PostFilter::class => Form\Factory\PostFilterFactory::class,
+		],
+    ],
     'controllers' => [
 	// NOTE: this syntax is more typical for ZF 2.4 applications
 	//'invokables' => [

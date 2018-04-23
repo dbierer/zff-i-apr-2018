@@ -1,2 +1,7 @@
-<h1>Posting</h1>
-
+<h1>Online Market Posting</h1>
+<hr />
+<?php $this->postForm->prepare(); ?>
+<?= $this->form()->openTag($this->postForm); ?>
+<?= $this->formcollection($this->postForm); ?>
+<?= $this->form()->closeTag(); ?>
+<?php Zend\Debug\Debug::dump($this->data, __FILE__); ?>
