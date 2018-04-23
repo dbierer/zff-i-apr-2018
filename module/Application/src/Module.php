@@ -7,11 +7,23 @@
 
 namespace Application;
 
+use Zend\Mvc\MvcEvent;
 use Application\Controller\IndexController;
 class Module
 {
     const VERSION = '3.0.3-dev';
 
+	public function onBootstrap(MvcEvent $e)
+	{
+		$evm = $e->getApplication()->getEventManager();
+		$shared = $evm->getSharedManager();
+		$shared->attach('ID', 'whatever', [$this, 'whatever'], 99);
+		$evm->trigger('whatever', $this, ['x'=>'XXX','y'=>'YYY']);
+	}
+	public function whatever($e)
+	{
+		echo $e->getName() . ':' . get_class($e->getTarget()) . ':' . var_export(array_keys($e->getParams()), TRUE);
+	}
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';

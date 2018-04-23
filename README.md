@@ -1,6 +1,18 @@
 # Zend Framework Fundamentals I -- April 2018
 
+http://localhost:8888/#/9/12: missing 2nd argument array()
+
 ## LABS TO DO:
+### For Thu 26 April 2018:
+* Lab: Events
+* Lab: Lab: Database Persistence -- Part I
+  * Jump ahead to the "Database Persistence" lab
+  * Do steps 1, 2 and 3
+  * Modify `Market\Controller\Factory\IndexControllerFactory` and inject the adapter into `Market\Controller\IndexController`
+  * In the controller:
+    * Run a query which selects the entire `onlinemarket.listings` table
+    * Pass results to the view
+    * In `index.phtml`, in a loop: use `Zend\Debug\Debug::dump()` to view each record
 ### For Mon 23 April 2018:
 * Lab: Forms
   * Step 14: missing closing "'" in example
@@ -402,4 +414,18 @@ IMPORTANT: do not forget to update the filesystem permissions!
 10. Open the browser and enter this URL: http://onlinemarket.work/market.
 11. If everything looks good, great!, you're ready to move forward, otherwise check everything again and test.
 
-
+## Database Persistence
+* Adapter::query() example is missing a 2nd argument.  Should be as follows:
+```
+$adapter = $container->get('model-primary-adapter');
+$results = $adapter->query('
+  SELECT gb.message, gb.created, CONCAT(u.first_name, " ", u.last_name)
+        as full_name
+  FROM guestbook as gb
+  INNER JOIN user as u ON (gb.user_id = u.id)
+  WHERE u.first_name LIKE "john%"
+    ORDER BY gb.created DESC, u.first_name ASC
+    LIMIT 1, 20;
+',
+array());
+```

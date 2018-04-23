@@ -23,6 +23,11 @@ class IndexController extends AbstractActionController
     }
     public function whateverAction()
     {
+		$evm = $this->getEventManager();
+		$evm->addIdentifiers(['ID']);
+		// the following gets the MVC event manager:
+		//$evm = $this->getEvent()->getApplication()->getEventManager();
+		$evm->trigger('whatever', $this, ['a'=>'AAA','b'=>'BBB','c'=>'CCC']);
         return new ViewModel(['whatever' => $this->whatever]);
     }
     public function testAction()
