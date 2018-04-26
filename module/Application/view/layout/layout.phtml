@@ -46,24 +46,6 @@
         </nav>
         <div class="container">
 			<!-- NOTE: this hard-coded array will later be removed because we will use an event listener to inject categories into the layout -->
-			<?php $categories = [
-				'barter',
-				'beauty',
-				'clothing',
-				'computer',
-				'entertainment',
-				'free',
-				'garden',
-				'general',
-				'health',
-				'household',
-				'phones',
-				'property',
-				'sporting',
-				'tools',
-				'transportation',
-				'wanted'
-			]; ?>
 			<!-- TODO: create 2 divs + use "leftLinks" view helper -->
 			<div class="col-md-2">
 				<?= $this->leftLinks($categories, $this->url('market/view/category')); ?>

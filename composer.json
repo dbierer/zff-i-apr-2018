@@ -20,12 +20,14 @@
         "zfcampus/zf-development-mode": "^3.0",
         "zendframework/zend-mvc-plugin-flashmessenger": "^1.0",
         "zendframework/zend-captcha": "^2.7",
-        "zendframework/zend-i18n": "^2.7"
+        "zendframework/zend-i18n": "^2.7",
+        "zendframework/zend-db": "^2.9"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Market\\": "module/Market/src/"
+            "Market\\": "module/Market/src/",
+            "Model\\": "module/Model/src/"
         }
     },
     "autoload-dev": {

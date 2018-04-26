@@ -3,6 +3,8 @@
 http://localhost:8888/#/9/12: missing 2nd argument array()
 
 ## LABS TO DO:
+### For Fri 27 April 2018:
+* Lab: Lab: Database Persistence -- All Remaining Bits
 ### For Thu 26 April 2018:
 * Lab: Events
 * Lab: Lab: Database Persistence -- Part I
