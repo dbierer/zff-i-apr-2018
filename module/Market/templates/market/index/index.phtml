@@ -5,9 +5,4 @@
         echo $this->htmlList($this->messages);
     }
 ?>
-<?php
-    foreach ($this->results as $row) {
-		Zend\Debug\Debug::dump($row);
-    }
-?>
-
+<?= $this->partial('market/partials/item', ['item' => $this->item]); ?>

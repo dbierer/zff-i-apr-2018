@@ -2,6 +2,7 @@
 
 namespace Market\Controller;
 
+use Model\Table\Listings;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Market\Controller\ViewController;
@@ -16,6 +17,8 @@ class ViewControllerFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new ViewController();
+        $controller = new ViewController();
+        $controller->setListingsTable($container->get(Listings::class));
+        return $controller;
     }
 }

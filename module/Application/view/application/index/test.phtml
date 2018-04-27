@@ -23,6 +23,5 @@ background-image {
 <img src="<?= $this->escapeHtmlAttr("<script>alert('test');</script>"); ?>" /></li>
 </ul>
 
-<pre>
-<?php var_dump($this->request); ?>
-</pre>
+<?php Zend\Debug\Debug::dump($this->request); ?>
+<?php Zend\Debug\Debug::dump($this->routeMatch); ?>

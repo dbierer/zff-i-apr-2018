@@ -5,11 +5,8 @@
         echo $this->htmlList($this->messages);
     }
 ?>
-<h3>Categories</h3>
 <?php
-   if (!empty($this->categories)) {
-        echo $this->htmlList($this->categories);
+    foreach ($this->results as $row) {
+		Zend\Debug\Debug::dump($row);
     }
 ?>
-
-

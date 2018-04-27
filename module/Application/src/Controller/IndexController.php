@@ -32,8 +32,8 @@ class IndexController extends AbstractActionController
     }
     public function testAction()
     {
-	$title = $this->params()->fromQuery('title', __METHOD__);
-        return new ViewModel(['title' => $title, 'request' => $this->getRequest()]);
+		$title = $this->params()->fromQuery('title', __METHOD__);
+        return new ViewModel(['title' => $title, 'request' => $this->getRequest(), 'routeMatch' => $this->getEvent()->getRouteMatch()]);
     }
     public function shortCircuitAction()
     {
